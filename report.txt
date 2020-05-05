@@ -1,0 +1,8 @@
+Hardware: intel I5 processor with 4 cores and Nvidia geforce graphics card. 16 gigs ram. Running windows 10.
+           List    Ivec
+System:     .01        .05
+Hw08:       20        30
+Bins:      5 (seg fault) 7 (seg fualt)
+We attempted to make a bin allocator with local cache free lists. The strategy was that the cache were initially 0 and the global bucket list was initialized. First the threads would get memory from the global buckets and then, once they freed, it would be stored in the local cache so that when they malloced again it would be returned from the cache. Unfourtunatley we ran into an unsolvable problem and were not able to fully complete our implemntation. If the grader could please let us know where we went wrong it would be apreciated as we fell our code should work.
+
+The results we got were that system malloc worked pretty much instantly while our hw08 malloc took 20 - 30 seconds. Our bins allocator segfaulted in about 5 seconds, however, this was purposeful so that we could run at least some tests. Regularly run it would get caught in an infinite loop.
